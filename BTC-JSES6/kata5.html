@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Pedimos el nombre al usuario
+        let nombre = prompt("Hola, ¿Puedes decirme tu nombre?");
+        //Pedimo el número al usuario
+        let numero = prompt("Dinos el numero que quieres saber si es primo o no");
+
+        //función que detectará si el numeor es primo o no
+        const isPrime = num => {
+            for (let i=2; i< num; i++)
+                if (num % i === 0) return false;
+            return num>1;
+        }
+        //Devolución de la consola
+
+        if(!isPrime(numero)){
+            nombre=nombre.fontcolor('red');
+            numero=numero.fontcolor('red');
+            console.log(`Hola ${nombre}, el numero que has introducido, ${numero}, NO es primo`);
+        }else {
+            nombre=nombre.fontcolor('lime');
+            numero=numero.fontcolor('lime');
+            console.log(`hola ${nombre}, el numero que has introducido, ${numero}, SI es primo`);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Función Arrow</title>
+</head>
+<body>
+    <script>
+        //creamos la función contador
+        let contador = string => {
+            return string.split('').reduce((total, letter) => {
+                total[letter] ? total[letter]++ : total[letter] = 1;
+                return total;
+            }, {});
+        };
+        //depositamos el resultado que retorna ,a función a una variable
+        let resultado = contador("Hola mundo");
+        console.log(resultado);
+    </script>
+</body>
+</html>

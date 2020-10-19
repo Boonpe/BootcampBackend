@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de carreras</title>
+</head>
+<body>
+    <script>
+    
+        //CREACION DE LAS CLASES
+        class Circuito {
+            constructor (Name, NumVuetas, KMVueltas){
+            this.Name = Name;
+            this.NumVuetas = NumVuetas;
+            this.KMVueltas = KMVueltas;
+            }
+        }
+        class Coche {
+            constructor (Nombre, Velocidad, Gasolina, TRepostaje, DurNeumatcos){
+            this.Nombre= Nombre;
+            this.Velocidad= Velocidad;
+            this.Gasolina = Gasolina;
+            this.TRepostaje = TRepostaje;
+            this.DurNeumatcos = DurNeumatcos;
+            }
+        }
+
+        //FUNCION PARA CALCULAR LAS POSICIONES DE LA PARTIDA
+        function CalculoPosicion(circuitoElegido){
+            function CalculoCocheTiempo(circuito, coche){
+                return {
+                    tiempo : (((circuito.NumVuetas * circuito.KMVueltas)/coche.DurNeumatcos)*coche.TRepostaje)+(((circuito.NumVuetas * circuito.KMVueltas)*60)/coche.Velocidad),
+                    Nombre : coche.Nombre
+                    }
+            }
+            MercedesTiempo = CalculoCocheTiempo(circuitoElegido, Mercedes);
+            AudiTiempo = CalculoCocheTiempo(circuitoElegido, Audi);
+            VolvoTiempo = CalculoCocheTiempo(circuitoElegido, Volvo);
+            RenaultTiempo = CalculoCocheTiempo(circuitoElegido, Renault);
+            console.log("Las posiciones son:", [MercedesTiempo, AudiTiempo, VolvoTiempo, RenaultTiempo].sort(function (a,b){
+                return a.tiempo - b.tiempo;
+            }));
+        }
+
+        //SE DEFINE CIRCUITOS
+        const Barcelona = new Circuito("Barcelona", 23, 3);
+        const Valencia = new Circuito("Valencia", 28, 2.5);
+        const Jarama = new Circuito("Jarama", 23, 3.2);
+        const Jerez = new Circuito("Jerez", 20, 4);
+        
+    do {
+        //Se define coches, gasolina en Km, tiempo de rpostaje en segundos y duracion neumaticos en km
+        var Mercedes = new Coche("Mercedes",Math.floor(Math.random() * (300 - 200)) + 200, 80, 5, 20);
+        var Audi = new Coche("Audi",Math.floor(Math.random() * (300 - 200)) + 200, 70, 7, 23);
+        var Volvo = new Coche("Volvo", Math.floor(Math.random() * (300 - 200)) + 200, 75, 8, 24);
+        var Renault = new Coche("Renault",Math.floor(Math.random() * (300 - 200)) + 200, 65, 10, 30);
+        
+        //Pedir al usuario circuito donde quiere participar y coche con el que quiere participar
+        var circuitoElegido = prompt("¿En que circuito se disputa la carrera: Barcelona, Valencia, Jarama o Jerez?");
+        circuitoElegido = circuitoElegido.toLowerCase();
+        var cocheElegido= prompt(`Con que coche quieres participar (velocidad, km de gasolina, tiempo de repostaje, duracion de neumaticos): \nMercedes: ${Mercedes.Velocidad}, ${Mercedes.Gasolina}, ${Mercedes.TRepostaje}, ${Mercedes.DurNeumatcos} \nAudi: ${Audi.Velocidad}, ${Audi.Gasolina},${Audi.TRepostaje},${Audi.DurNeumatcos} \nVolvo: ${Volvo.Velocidad}, ${Volvo.Gasolina},${Volvo.TRepostaje},${Volvo.DurNeumatcos}\nRenault: ${Renault.Velocidad}, ${Renault.Gasolina},${Renault.TRepostaje},${Audi.DurNeumatcos}`);
+        cocheElegido=cocheElegido.toLowerCase();
+
+        //calculo de posiciones segun caracteristicas de coches y circuitos, calculando el tiempo que tardan en dar todas los km, con el tiempo de paradas
+        if (circuitoElegido == "barcelona") {
+            CalculoPosicion(Barcelona);
+        } else if (circuitoElegido == "valencia") {
+            CalculoPosicion(Valencia);
+        } else if (circuitoElegido == "jarama") {
+            CalculoPosicion(Jarama);
+        } else if (circuitoElegido == "jerez") {
+            CalculoPosicion(Jerez);
+        } else {
+            console.log("El circuito elegido no se encuentra en la lista");
+        }
+        var x=prompt("¿Quieres jugar otra partida? (SI/NO)");
+        x=x.toLowerCase;
+    } while (x="si")
+    
+    </script>
+</body>
+</html>

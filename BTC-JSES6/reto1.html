@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var nombre= prompt("Indica el nombre que queremos transformar: ");
+        var alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]; 
+        
+        let Letras = string => {
+            string=string.toUpperCase();
+            return string.slice(0, 2);
+        }
+        let letter1 = string => {
+            string=string.toLowerCase();
+            return string.slice(0, 1);
+        }
+        let letter2 = string => {
+            string=string.toLowerCase();
+            return string.slice(1, 2);
+        }
+
+        var letterPosition1 = alphabet.indexOf(letter1(nombre))+1;
+        var letterPosition2 = alphabet.indexOf(letter2(nombre))+1;
+        let nombreFinal = Letras(nombre)+letterPosition1+letterPosition2;
+        console.log("Las dos primeras letras y su numero correspondientes es : ", nombreFinal);
+    </script>
+</body>
+</html>

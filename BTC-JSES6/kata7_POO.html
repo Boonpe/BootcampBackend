@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Vehiculo {
+            constructor (Marca, Matricula, NumRuedas, NumPuertas, Años, Velocidad){
+                this.Marca = Marca;
+                this.Matricula = Matricula;
+                this.NumRuedas = NumRuedas;
+                this.NumPuertas = NumPuertas;
+                this.Años = Años;
+                this.Velocidad = Velocidad;
+            }
+            correr(){
+                return this.Velocidad += 10;
+            }
+            Frenar(){
+                return this.Velocidad=0;
+            }
+            Aparcar(){
+                return console.log("Aparcao!");
+            }
+        }
+        class Coche extends Vehiculo {
+            constructor (Marca, Matricula, NumRuedas, NumPuertas, Años, Velocidad){
+                super(Marca, Matricula, NumRuedas, NumPuertas, Años, Velocidad);
+                this.consumo = "Diesel";
+            }
+        }
+        class Moto extends Vehiculo {
+            constructor (Marca, Matricula, NumRuedas, NumPuertas, Años, Velocidad){
+                super(Marca, Matricula,NumRuedas, NumPuertas, Años, Velocidad);
+            }
+        }
+        class Patin extends Vehiculo {
+            constructor (Marca, NumRuedas, Años){
+                super(Marca, NumRuedas, Años);
+            }
+        }
+        class Bicileta extends Vehiculo {
+            constructor (Marca, NumRuedas, Años){
+                super(Marca,NumRuedas, Años);
+            }
+        }
+    </script>
+</body>
+</html>

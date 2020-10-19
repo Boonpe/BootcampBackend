@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculadora 2.0</title>
+</head>
+<body>
+    <script>
+        var operacion = prompt('Introduce suma, resta, multi o divi');
+        var num1 = prompt('Introduce el numero 1');
+        var num2 = prompt('Introduce el numero 2');
+
+        function Suma (num1, num2){
+            return num1 + num2;
+        }
+        function Resta (num1, num2){
+            return num1 - num2;
+        }
+        function multi(num1, num2){
+            return num1 * num2;
+        }
+        function divi(num1, num2){
+            return num1 / num2;
+        }
+        switch(operacion){
+            case 'suma':
+                alert(Suma(num1, num2));
+            break;
+            case 'resta':
+                alert(Resta(num1, num2));
+            break;
+            case 'multi': 
+                alert(multi(num1, num2));
+            break;
+            case 'divi':
+                alert(divi(num1, num2));
+            break;
+
+        }
+    </script>
+</body>
+</html>

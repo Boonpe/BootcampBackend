@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reto arrow</title>
+</head>
+<body>
+    <script>
+        //creamos la función contador DE LETRAS
+        let contadorLetras = string => {
+            string=string.toLowerCase();
+            string=string.replace(/ /g, "");
+            return string.split('').reduce((total, letter) => {
+                total[letter] ? total[letter]++ : total[letter] = 1;
+                return total;
+            }, {});
+        };
+         //creamos la función contador DE PALABRAS
+         let contadorPalarbras = string => {
+            return string.split(' ').reduce((totalPalabra, word) => {
+                totalPalabra[word] ? totalPalabra[word]++ : totalPalabra[word] = 1;
+                return totalPalabra;
+            }, {});
+        };
+        //Pedimos el string al usuario
+        var Frase = prompt("¿Que texto quieres contar?")
+        //depositamos el resultado que retorna ,a función a una variable DE LAS LETRAS
+        let resultadoLetras = contadorLetras(Frase);
+        console.log(resultadoLetras);
+        //depositamos el resultado que retorna ,a función a una variableDE PALABRAS
+        let resultadoPalabras = contadorPalarbras(Frase);
+        console.log(resultadoPalabras);
+    </script>
+</body>
+</html>

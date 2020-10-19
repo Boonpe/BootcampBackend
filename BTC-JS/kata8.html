@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetos y Arrays</title>
+</head>
+<body>
+    <script>
+        var nombre = prompt('Introduce tu nombre');
+        var edad = prompt('Introduce tu edad');
+        var peliculasPermitidas = [];
+
+        var peliculas = [
+        {titulo : "Soy leyenda" , edadMinima: 13},
+        {titulo : "Rey Leon " , edadMinima: 3},
+        {titulo : "La marca del Demonio", edadMinima: 18},
+        {titulo : "A todo gas", edadMinima: 8},
+        ]
+
+        for(var i=0; i< peliculas.length; i++){
+            if (edad >= peliculas[i].edadMinima){
+                peliculasPermitidas.push(peliculas[i].titulo);
+            }
+        }
+        console.log('Puedes ver las siguientes peliculas: ' + peliculasPermitidas.join(', '));
+    </script>
+</body>
+</html>

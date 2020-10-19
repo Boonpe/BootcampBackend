@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>letra DNI</title>
+</head>
+<body>
+    <script>
+        var letras = 'TRWAGMYFPDXBNJZSQVHLCKET';
+        var dni = Number(prompt('Introduce tu DNI'));
+        var letra = letras[dni % 23];
+
+        console.log(dni + ' ' + letra);
+    
+    </script>
+</body>
+</html>

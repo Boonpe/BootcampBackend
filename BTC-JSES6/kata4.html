@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         let spread = (nombre) => {
+             let arr = [];
+             for (let i=0; i < nombre.length; i++) {
+                if (nombre[i].charCodeAt(0) >= 97 && nombre[i].charCodeAt(0) <=122){
+                     arr.push(nombre[i].charCodeAt(0) - 32);
+                     arr[i] =String.fromCharCode(arr[i]);
+                }else {
+                    arr.push(nombre[i].charCodeAt(0));
+                    arr[i]=String.fromCharCode(arr[i]);
+                }
+
+                 }
+                 return arr;
+            };
+        let nombre = "Murciélagos en València";
+        let resultado = spread([...nombre]);
+        console.log(resultado);
+
+         
+    </script>
+</body>
+</html>

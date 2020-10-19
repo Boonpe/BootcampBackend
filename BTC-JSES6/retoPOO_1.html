@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de carreras</title>
+</head>
+<body>
+    <script>
+    class Circuitos {
+        constructor (Name, NumVuetas, KMVueltas){
+            this.Name = Name
+            this.NumVuetas = NumVuetas;
+            this.KMVueltas = KMVueltas;
+        }
+    }
+    class Coches {
+        constructor (Nombre, Velocidad, Gasolina, TRepostaje, DurNeumatcos){
+            this.Nombre= Nombre
+            this.Velocidad= Velocidad;
+            this.Gasolina = Gasolina;
+            this.TRepostaje = TRepostaje;
+            this.DurNeumatcos = DurNeumatcos;
+        }
+    }
+    //Se define coches, gasolina en Km, tiempo de rpostaje en segundos y duracion neumaticos en km
+    
+    class Mercedes extends Coches {
+        constructor (Nombre, Velocidad, Gasolina, TRepostaje, DurNeumatcos){
+            this.Nombre = "Mercedes"
+            this.Velocidad= Math.random * 300;
+            this.Gasolina = 80;
+            this.TRepostaje = 5
+            this.DurNeumatcos = 20;
+        }
+    }
+    class Audi extends Coches {
+        constructor (Nombre, Velocidad, Gasolina, TRepostaje, DurNeumatcos){
+            this.Nombre = "Audi"
+            this.Velocidad= Math.random * 300;
+            this.Gasolina = 80;
+            this.TRepostaje = 5
+            this.DurNeumatcos = 20;
+        }
+    }
+    class Volvo extends Coches {
+        constructor (Nombre, Velocidad, Gasolina, TRepostaje, DurNeumatcos){
+            this.Nombre = "Volvo"
+            this.Velocidad= Math.random * 300;
+            this.Gasolina = 80;
+            this.TRepostaje = 5
+            this.DurNeumatcos = 20;
+        }
+    }
+    class Renault extends Coches {
+        constructor (Nombre, Velocidad, Gasolina, TRepostaje, DurNeumatcos){
+            this.Nombre = "Renault"
+            this.Velocidad= Math.random * 300;
+            this.Gasolina = 80;
+            this.TRepostaje = 5
+            this.DurNeumatcos = 20;
+        }
+    }
+
+    //Se define circuitos
+    class Barcelona extends Circuitos {
+        constructor (Name, NumVuetas, KMVueltas){
+            this.Name ="Barcelona"
+            this.NumVuetas = 23;
+            this.KMVueltas = 3;
+        }
+    }
+    class Valencia extends Circuitos{
+        constructor (Name, NumVuetas, KMVueltas){
+            this.Name ="Valencia"
+            this.NumVuetas = 28;
+            this.KMVueltas = 2.5;
+        }
+    }
+    class Jarama extends Circuitos{
+        constructor (Name, NumVuetas, KMVueltas){
+            this.Name ="Jarama"
+            this.NumVuetas = 23;
+            this.KMVueltas = 3.2;
+        }
+    }
+    class Jerez extends Circuitos{
+        constructor (Name, NumVuetas, KMVueltas){
+            this.Name ="Jerez"
+            this.NumVuetas = 20;
+            this.KMVueltas = 4;
+        }
+    }
+
+    //Pedir al usuario circuito donde quiere participar y coche con el que quiere participar
+    var circuitoElegido = prompt("¿En que circuito se disputa la carrera: Barcelona, Valencia, Jarama o Jerez?");
+    circuitoElegido = circuitoElegido.toLowerCase();
+    var cocheElegido= prompt("Con que coche quieres participar (velocidad, km de gasolina, tiempo de repostaje, duracion de neumaticos): \n Mercedes:"+( Mercedes.Velocidad, Mercedes.Gasolina, Mercedes.TRepostaje, Mercedes.DurNeumatcos), "\n Audi: ", "\n Volvo:", "\n Renault");
+    cocheElegido=cocheElegido.toLowerCase();
+
+    //calculo de posiciones segun caracteristicas de coches y circuitos, calculando el tiempo que tardan en dar todas los km, con el tiempo de paradas
+    if (circuitoElegido == "barcelona") {
+        Mercedes = (((Barcelona.NumVuetas * Barcelona.KMVueltas)/Mercedes.DurNeumatcos)*Mercedes.TRepostaje)+(((Barcelona.NumVuetas * Barcelona.KMVueltas)*60)/Mercedes.Velocidad);
+        Audi = (((Barcelona.NumVuetas * Barcelona.KMVueltas)/Audi.DurNeumatcos)*Audi.TRepostaje)+(((Barcelona.NumVuetas * Barcelona.KMVueltas)*60)/Audi.Velocidad);
+        Volvo = (((Barcelona.NumVuetas * Barcelona.KMVueltas)/Volvo.DurNeumatcos)*Volvo.TRepostaje)+(((Barcelona.NumVuetas * Barcelona.KMVueltas)*60)/Volvo.Velocidad);
+        Renault = (((Barcelona.NumVuetas * Barcelona.KMVueltas)/Renault.DurNeumatcos)*Renault.TRepostaje)+(((Barcelona.NumVuetas * Barcelona.KMVueltas)*60)/Renault.Velocidad);
+        console.log("Las posiciones son:", [Mercedes, Audi, Volvo, Renault].sort());
+
+    } else if (circuitoElegido == "valencia") {
+        Mercedes = (((Valencia.NumVuetas * Valencia.KMVueltas)/Mercedes.DurNeumatcos)*Mercedes.TRepostaje)+(((Valencia.NumVuetas * Valencia.KMVueltas)*60)/Mercedes.Velocidad);
+        Audi = (((Valencia.NumVuetas * Valencia.KMVueltas)/Audi.DurNeumatcos)*Audi.TRepostaje)+(((Valencia.NumVuetas * Valencia.KMVueltas)*60)/Audi.Velocidad);
+        Volvo = (((Valencia.NumVuetas * Valencia.KMVueltas)/Volvo.DurNeumatcos)*Volvo.TRepostaje)+(((Valencia.NumVuetas * Valencia.KMVueltas)*60)/Volvo.Velocidad);
+        Renault = (((Valencia.NumVuetas * Valencia.KMVueltas)/Renault.DurNeumatcos)*Renault.TRepostaje)+(((Valencia.NumVuetas * Valencia.KMVueltas)*60)/Renault.Velocidad);
+        console.log("Las posiciones son:", [Mercedes, Audi, Volvo, Renault].sort());
+
+    } else if (circuitoElegido == "jarama") {
+        Mercedes = (((Jarama.NumVuetas * Jarama.KMVueltas)/Mercedes.DurNeumatcos)*Mercedes.TRepostaje)+(((Jarama.NumVuetas * Jarama.KMVueltas)*60)/Mercedes.Velocidad);
+        Audi = (((Jarama.NumVuetas * Jarama.KMVueltas)/Audi.DurNeumatcos)*Audi.TRepostaje)+(((Jarama.NumVuetas * Jarama.KMVueltas)*60)/Audi.Velocidad);
+        Volvo = (((Jarama.NumVuetas * Jarama.KMVueltas)/Volvo.DurNeumatcos)*Volvo.TRepostaje)+(((Jarama.NumVuetas * Jarama.KMVueltas)*60)/Volvo.Velocidad);
+        Renault = (((Jarama.NumVuetas * Jarama.KMVueltas)/Renault.DurNeumatcos)*Renault.TRepostaje)+(((Jarama.NumVuetas * Jarama.KMVueltas)*60)/Renault.Velocidad);
+        console.log("Las posiciones son:", [Mercedes, Audi, Volvo, Renault].sort());
+
+    } else if (circuitoElegido == "jerez") {
+        Mercedes = (((Jerez.NumVuetas * Jerez.KMVueltas)/Mercedes.DurNeumatcos)*Mercedes.TRepostaje)+(((Jerez.NumVuetas * Jerez.KMVueltas)*60)/Mercedes.Velocidad);
+        Audi = (((Jerez.NumVuetas * Jerez.KMVueltas)/Audi.DurNeumatcos)*Audi.TRepostaje)+(((Jerez.NumVuetas * Jerez.KMVueltas)*60)/Audi.Velocidad);
+        Volvo = (((Jerez.NumVuetas * Jerez.KMVueltas)/Volvo.DurNeumatcos)*Volvo.TRepostaje)+(((Jerez.NumVuetas * Jerez.KMVueltas)*60)/Volvo.Velocidad);
+        Renault = (((Jerez.NumVuetas * Jerez.KMVueltas)/Renault.DurNeumatcos)*Renault.TRepostaje)+(((Jerez.NumVuetas * Jerez.KMVueltas)*60)/Renault.Velocidad);
+        console.log("Las posiciones son:", [Mercedes, Audi, Volvo, Renault].sort());
+    } else {
+        console.log("El circuito elegido no se encuentra en la lista");
+    }
+    
+    </script>
+</body>
+</html>

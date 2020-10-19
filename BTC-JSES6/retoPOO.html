@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de carreras</title>
+</head>
+<body>
+    <script>
+    class Circuitos {
+        constructor (NumVuetas, KMVueltas){
+            this.NumVuetas = NumVuetas;
+            this.KMVueltas = KMVueltas;
+        }
+    }
+    class Coches {
+        constructor (Velocidad, Gasolina, TRepostaje, DurNeumatcos){
+            this.velocidad= Math.random * 300;
+            this.Gasolina = Gasolina;
+            this.TRepostaje = TRepostaje;
+            this.DurNeumatcos = DurNeumatcos;
+        }
+    }
+    
+    //Se define coches, gasolina en Km, tiempo de rpostaje en segundos y duracion neumaticos en km
+    var Mercedes = new Coches( Math.random * 300, 80, 5, 20);
+    var Audi = new Coches(Math.random * 300, 70, 7, 23);
+    var Volvo = new Coches(Math.random * 300, 75, 8, 24);
+    var Renault = new Coches(Math.random * 300, 65, 10, 30);
+    //Se define circuitos
+    const Barcelona = new Circuitos(23, 3);
+    const Valencia = new Circuitos(28, 2.5);
+    const Jarama = new Circuitos(23, 3.2);
+    const Jerez = new Circuitos(20, 4);
+
+    //Pedir al usuario circuito donde quiere participar y coche con el que quiere participar
+    var circuitoElegido = prompt("¿En que circuito se disputa la carrera: Barcelona, Valencia, Jarama o Jerez?");
+    circuitoElegido = circuitoElegido.toLowerCase();
+    var cocheElegido= prompt("Con que coche quieres participar (velocidad, km de gasolina, tiempo de repostaje, duracion de neumaticos): ", + Mercedes[1,2,3,4] + Audi[1,2,3,4] + Volvo[1,2,3,4] + Renault[1,2,3,4]);
+    cocheElegido=cocheElegido.toLowerCase();
+
+    //calculo de posiciones segun caracteristicas de coches y circuitos, calculando el tiempo que tardan en dar todas los km, con el tiempo de paradas
+    if (circuitoElegido == "barcelona") {
+        Mercedes = (((Barcelona[1]*Barcelona[2])/Mercedes[4])*Mercedes[3])+(((Barcelona[1]*Barcelona[2])*60)/Mercedes[1]);
+        Audi = (((Barcelona[1]*Barcelona[2])/Audi[4])*Audi[3])+(((Barcelona[1]*Barcelona[2])*60)/Audi[1]);
+        Volvo = (((Barcelona[1]*Barcelona[2])/Volvo[4])*Volvo[3])+(((Barcelona[1]*Barcelona[2])*60)/Volvo[1]);
+        Renault = (((Barcelona[1]*Barcelona[2])/Renault[4])*Renault[3])+(((Barcelona[1]*Barcelona[2])*60)/Renault[1]);
+        console.log("Las posiciones son:", [Mercedes, Audi, Volvo, Renault].sort());
+
+    } else if (circuitoElegido == "valencia") {
+        Mercedes = (((Valencia[1]*Valencia[2])/Mercedes[4])*Mercedes[3])+(((Valencia[1]*Valencia[2])*60)/Mercedes[1]);
+        Audi = (((Valencia[1]*Valencia[2])/Audi[4])*Audi[3])+(((Valencia[1]*Valencia[2])*60)/Audi[1]);
+        Volvo = (((Valencia[1]*Valencia[2])/Volvo[4])*Volvo[3])+(((Valencia[1]*Valencia[2])*60)/Volvo[1]);
+        Renault = (((Valencia[1]*Valencia[2])/Renault[4])*Renault[3])+(((Valencia[1]*Valencia[2])*60)/Renault[1]);
+        console.log("Las posiciones son:", [Mercedes, Audi, Volvo, Renault].sort());
+
+    } else if (circuitoElegido == "jarama") {
+        Mercedes = (((Jarama[1]*Jarama[2])/Mercedes[4])*Mercedes[3])+(((Jarama[1]*Jarama[2])*60)/Mercedes[1]);
+        Audi = (((Jarama[1]*Jarama[2])/Audi[4])*Audi[3])+(((Jarama[1]*Jarama[2])*60)/Audi[1]);
+        Volvo= (((Jarama[1]*Jarama[2])/Volvo[4])*Volvo[3])+(((Jarama[1]*Jarama[2])*60)/Volvo[1]);
+        Renault = (((Jarama[1]*Jarama[2])/Renault[4])*Renault[3])+(((Jarama[1]*Jarama[2])*60)/Renault[1]);
+        console.log("Las posiciones son:", [Mercedes, Audi, Volvo, Renault].sort());
+
+    } else if (circuitoElegido == "jerez") {
+        Mercedes = (((Jerez[1]*Jerez[2])/Mercedes[4])*Mercedes[3])+(((Jerez[1]*Jerez[2])*60)/Mercedes[1]);
+        Audi= (((Jerez[1]*Jerez[2])/Audi[4])*Audi[3])+(((Jerez[1]*Jerez[2])*60)/Audi[1]);
+        Volvo = (((Jerez[1]*Jerez[2])/Volvo[4])*Volvo[3])+(((Jerez[1]*Jerez[2])*60)/Volvo[1]);
+        Renault = (((Jerez[1]*Jerez[2])/Renault[4])*Renault[3])+(((Jerez[1]*Jerez[2])*60)/Renault[1]);
+        console.log("Las posiciones son:", [Mercedes, Audi, Volvo, Renault].sort());
+    } else {
+        console.log("El circuito elegido no se encuentra en la lista");
+    }
+    
+    </script>
+</body>
+</html>
